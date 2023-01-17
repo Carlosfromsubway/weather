@@ -59,7 +59,12 @@ export default function Home() {
         {
       weather && weather.map((w, index) =>{
         return(
+          <div key={index}> 
+          <div>{w.description}</div>
+          <div>{w.main}</div>
           
+          </div>
+
         )
       })
     }
