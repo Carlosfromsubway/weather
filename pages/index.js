@@ -11,6 +11,7 @@ export default function Home() {
   const [location, setLocation] = useState('');
   const [data, setData] = useState({});
   const [weather, setWeather] = useState();
+  const [main, setMain] = useState();
   const [errorMessage, setErrorMessage] = useState('');
 
   var apikey = "6e9eec007068656a19ba913cd5caeaca"
@@ -25,13 +26,15 @@ export default function Home() {
         console.clear();
         setData(response.data)
         console.log(response.data);
-        setWeather(response.data.weather)
+        setWeather(response.data.weather);
+        setMain(response.data.main)
         setErrorMessage("")
       }).catch(err =>{
         console.log(err)
         setErrorMessage("Enter another locale")
         setData({})
         setWeather()
+        setMain()
       })
       setLocation('')
     }
@@ -46,7 +49,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-    <input
+      <div> Enter in a Location into the search field.</div>
+    <input className={styles.input}
     value={location}
     onChange={event => setLocation(event.target.value)}
     placeholder="enter locale"
@@ -56,17 +60,23 @@ export default function Home() {
 
     
     />
+
+
+
         {
       weather && weather.map((w, index) =>{
         return(
           <div key={index}> 
+          
           <div>{w.description}</div>
           <div>{w.main}</div>
+           
           
           </div>
 
         )
       })
+      
     }
       </main>
     </>
