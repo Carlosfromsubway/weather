@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { use, useState } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -60,17 +61,17 @@ export default function Home() {
 
     
     />
-
+ 
 
 
         {
       weather && weather.map((w, index) =>{
         return(
           <div key={index}> 
-          
+          <weathercard> 
           <div>{w.description}</div>
           <div>{w.main}</div>
-           
+          </weathercard>
           
           </div>
 
@@ -82,3 +83,12 @@ export default function Home() {
     </>
   )
 }
+
+const weathercard = styled.div `
+height: 400px;
+width: 250px;
+background-color: blue;
+border-color: black;
+
+
+`
