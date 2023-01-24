@@ -50,7 +50,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-      <div> Enter in a Location into the search field.</div>
+      <div className={styles.header}> Enter in a Location into the search field.</div>
     <input className={styles.input}
     value={location}
     onChange={event => setLocation(event.target.value)}
@@ -70,7 +70,11 @@ export default function Home() {
           <div key={index}> 
           <weathercard> 
           <div>{w.description}</div>
-          <div>{w.main}</div>
+          <div>{w.main}
+          <div>Temperature {data.main.temp}&#8451;</div>
+          <div>Windspeed {data.wind.gust}&#x4d; &#x0338; &#x53;</div>
+          <div>Feels like {data.main.feels_like}&#8451;</div>
+          </div>
           </weathercard>
           
           </div>
@@ -87,8 +91,9 @@ export default function Home() {
 const weathercard = styled.div `
 height: 400px;
 width: 250px;
-background-color: blue;
+background-color: white;
 border-color: black;
-
-
+color: white;
+margin: 5px;
+font-size: 19px;
 `
