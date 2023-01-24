@@ -31,6 +31,8 @@
   justify-content: center;
   margin-bottom: 600px;
   border-radius: 8px;
+  background-color: aliceblue;
+  align-content: center;
 }
 
 .description {
